@@ -12,7 +12,7 @@ AR = ar
 
 # All library paths should be correctly set after this.
 
-STAN_ROOT ?= /c/cmdstan-2.10.0/
+STAN_ROOT ?= /c/cmdstan/
 STANV ?= 2.10.0
 
 # STANC can also be set using $(STAN_ROOT)bin/stanc
@@ -24,9 +24,9 @@ MODEL_FILES=$(patsubst %.stan,%.model,$(STAN_FILES))
 ##
 # Library locations
 ##
-STAN ?= $(STAN_ROOT)stan_$(STANV)/
+STAN ?= $(STAN_ROOT)stan/
 STAN_SRC ?= $(STAN_ROOT)src/
-MATH ?= $(STAN)lib/stan_math_$(STANV)/
+MATH ?= $(STAN)lib/stan_math/
 EIGEN ?= $(MATH)lib/eigen_3.2.8
 BOOST ?= $(MATH)lib/boost_1.60.0
 GTEST ?= $(MATH)lib/gtest_1.7.0
