@@ -5,5 +5,6 @@ build_script:
   - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
   - g++ --version
   - cd C:\cmdstan
-  - make C:\projects\stan-linear-ex\linear.exe
+  - make -p
+  - make /c/projects/stan-linear-ex/linear.exe
 
