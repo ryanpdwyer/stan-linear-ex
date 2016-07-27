@@ -6,7 +6,7 @@ build_script:
   - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
   - g++ --version
   - dir C:\cmdstan\src
-  - dir C:\cmdstan\src\model
+  - dir C:\cmdstan\src\cmdstan
   - cd C:\projects\stan-linear-ex
   - make -h
   - make all -e STAN_ROOT=/c/cmdstan/
