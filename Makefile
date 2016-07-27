@@ -27,11 +27,11 @@ MODEL_FILES=$(patsubst %.stan,%.model,$(STAN_FILES))
 STAN ?= $(STAN_ROOT)stan/
 STAN_SRC ?= $(STAN_ROOT)src/
 MATH ?= $(STAN)lib/stan_math/
-EIGEN ?= $(MATH)lib/eigen_3.2.8
-BOOST ?= $(MATH)lib/boost_1.60.0
-GTEST ?= $(MATH)lib/gtest_1.7.0
-CPPLINT ?= $(MATH)lib/cpplint_4.45
-CVODES ?= $(MATH)lib/cvodes_2.8.2
+EIGEN ?= $(MATH)lib/eigen_3.2.8/include/
+BOOST ?= $(MATH)lib/boost_1.60.0/include/
+GTEST ?= $(MATH)lib/gtest_1.7.0/include/
+CPPLINT ?= $(MATH)lib/cpplint_4.45/include/
+CVODES ?= $(MATH)lib/cvodes_2.8.2/include/
 MAIN ?= $(STAN_SRC)cmdstan/main.cpp
 
 ##
