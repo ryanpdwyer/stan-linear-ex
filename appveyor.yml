@@ -4,6 +4,6 @@ build_script:
   - ps: Expand-Archive C:\cmdstan.zip -dest C:\
   - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
   - g++ --version
-  - cd C:\projects\stan-linear-ex
-  - make -h
-  - make all
+  - cd C:\cmdstan
+  - make C:\projects\stan-linear-ex\linear.exe
+
