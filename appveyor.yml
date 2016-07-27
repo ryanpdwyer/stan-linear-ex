@@ -1,0 +1,8 @@
+before_script:
+  - ps: Start-FileDownload "https://ci.appveyor.com/api/projects/ryanpdwyer/cmdstan/artifacts/cmdstan.zip" C:\cmdstan.zip; echo "Finished downloading cmdstan"
+  # See http://stackoverflow.com/a/27771099
+  - ps: Expand-Archive C:\cmdstan.zip -dest .
+  - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
+  - g++ --version
+  - cd stan-linear-ex
+  - make -e STAN_ROOT="C:\cmdstan\" -e "C:\cmdstan\" all
