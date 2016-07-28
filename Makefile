@@ -10,6 +10,10 @@ O = 3
 O_STANC = 0
 AR = ar
 
+# See http://stackoverflow.com/a/18137056
+MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+CURR_DIR := $(patsubst %/,%,$(dir $(MKFILE_PATH)))
+
 # All library paths should be correctly set after this.
 
 STAN_ROOT ?= /c/cmdstan/
@@ -25,8 +29,8 @@ help:
 all: $(EXE_FILES) $(STAN_FILES)
 
 %.hpp: %.stan
-	$(MAKE) -C $(STAN_ROOT) $@
+	$(MAKE) -C $(STAN_ROOT) $(CURR_DIR)/$@
 
 %.exe: %.hpp
-	$(MAKE) -C $(STAN_ROOT) $@
+	$(MAKE) -C $(STAN_ROOT) $(CURR_DIR)/$@
 
