@@ -4,11 +4,7 @@ build_script:
   - ps: Expand-Archive C:\cmdstan.zip -dest C:\
   - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
   - g++ --version
-  - cd C:\cmdstan
-  - make -p
-  - make /c/projects/stan-linear-ex/line.exe
-  - make /c/projects/stan-linear-ex/transformed-line.exe
-  - make /c/projects/stan-linear-ex/transformed-scaled-line.exe
+  - make all
 
 artifacts:
 
