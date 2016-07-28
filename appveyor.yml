@@ -6,5 +6,6 @@ build_script:
   - g++ --version
   - cd C:\cmdstan
   - make -p
-  - make /c/projects/stan-linear-ex/linear.exe
-
+  - make /c/projects/stan-linear-ex/line.exe
+  - make /c/projects/stan-linear-ex/transformed-line.exe
+  - make /c/projects/stan-linear-ex/transformed-scaled-line.exe
