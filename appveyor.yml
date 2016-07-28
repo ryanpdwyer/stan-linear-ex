@@ -9,3 +9,7 @@ build_script:
   - make /c/projects/stan-linear-ex/line.exe
   - make /c/projects/stan-linear-ex/transformed-line.exe
   - make /c/projects/stan-linear-ex/transformed-scaled-line.exe
+
+artifacts:
+
+  - path: '*.exe'
