@@ -4,6 +4,14 @@
 # - O: Optimization level. Valid values are {0, 1, 2, 3}.
 # - AR: archiver (must specify for cross-compiling)
 # - OS: {mac, win, linux}. 
+
+ifeq ($(OS),Windows_NT)
+    detected_OS := Windows
+else
+    detected_OS := $(shell sh -c 'uname -s 2>/dev/null || echo not')
+endif
+
+
 ##
 CC = g++
 O = 3
@@ -19,6 +27,7 @@ CURR_DIR := $(patsubst %/,%,$(dir $(MKFILE_PATH)))
 STAN_ROOT ?= /c/cmdstan/
 
 STAN_FILES=$(wildcard *.stan)
+
 EXE_FILES=$(patsubst %.stan,%.exe,$(STAN_FILES))
 
 
@@ -33,4 +42,7 @@ all: $(EXE_FILES) $(STAN_FILES)
 
 %.exe: %.hpp
 	$(MAKE) -C $(STAN_ROOT) $(CURR_DIR)/$@
+
+# %.out: %.hpp
+# 	$(MAKE) -C $(STAN_ROOT) $(CURR_DIR)/$@
 
