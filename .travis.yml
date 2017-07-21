@@ -9,9 +9,11 @@ compiler:
 
 before_script:
     - curl -OL "https://github.com/stan-dev/cmdstan/releases/download/v2.16.0/cmdstan-2.16.0.tar.gz"
-    - tar -xvzf cmdstan-2.16.0.tar.gz
+    - tar -xzf cmdstan-2.16.0.tar.gz
+    - pwd
+    - ls
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update -qq ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y build-essential ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq build-essential; fi
 
 script:
-    - STAN_ROOT=../cmdstan-2.16.0/ make all
+    - STAN_ROOT=cmdstan-2.16.0/ make all
