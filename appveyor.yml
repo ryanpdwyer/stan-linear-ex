@@ -4,6 +4,7 @@ build_script:
   - ps: Expand-Archive C:\cmdstan.zip -dest C:\
   - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
   - g++ --version
+  - stanc --version
   - make all
 
 artifacts:

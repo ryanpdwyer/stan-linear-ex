@@ -21,7 +21,7 @@ parameters {
   real<lower=0> Pdet;
 }
 model {
-    # Priors on fit parameters
+    // Priors on fit parameters
     dfc ~ normal(0, sigma_fc);
     kc ~ normal(mu_kc, sigma_kc);
     Q ~ normal(mu_Q, sigma_Q);
