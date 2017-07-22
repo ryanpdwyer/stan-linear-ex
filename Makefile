@@ -5,11 +5,6 @@
 # - AR: archiver (must specify for cross-compiling)
 # - OS: {mac, win, linux}. 
 
-ifeq ($(OS),Windows_NT)
-    detected_OS := Windows
-else
-    detected_OS := $(shell sh -c 'uname -s 2>/dev/null || echo not')
-endif
 
 
 ##
@@ -17,6 +12,7 @@ CC = g++
 O = 3
 O_STANC = 0
 AR = ar
+EXE = 
 
 # See http://stackoverflow.com/a/18137056
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -26,9 +22,11 @@ CURR_DIR := $(patsubst %/,%,$(dir $(MKFILE_PATH)))
 
 STAN_ROOT ?= /c/cmdstan/
 
+-include $(STAN_ROOT)make/detect_os
+
 STAN_FILES=$(wildcard *.stan)
 
-EXE_FILES=$(patsubst %.stan,%.exe,$(STAN_FILES))
+EXE_FILES=$(patsubst %.stan,%$(EXE),$(STAN_FILES))
 
 
 help:
@@ -40,7 +38,7 @@ all: $(EXE_FILES) $(STAN_FILES)
 %.hpp: %.stan
 	$(MAKE) -C $(STAN_ROOT) $(CURR_DIR)/$@
 
-%.exe: %.hpp
+%$(EXE): %.hpp
 	$(MAKE) -C $(STAN_ROOT) $(CURR_DIR)/$@
 
 # %.out: %.hpp
