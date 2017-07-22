@@ -17,3 +17,15 @@ before_script:
 
 script:
     - STAN_ROOT=cmdstan-2.16.0/ make all
+
+addons:
+  artifacts:
+      debug: true
+      s3_region: "us-west-2"
+      paths:
+        - gamma
+        - gamma2
+        - line
+        - transformed-line
+        - transformed-scaled-line
+        - transformed-scaled-trick-line
