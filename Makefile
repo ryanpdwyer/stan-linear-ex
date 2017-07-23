@@ -12,7 +12,7 @@ CC = g++
 O = 3
 O_STANC = 0
 AR = ar
-EXE = 
+EXE=.exe
 
 # See http://stackoverflow.com/a/18137056
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -31,7 +31,7 @@ EXE_FILES=$(patsubst %.stan,%$(EXE),$(STAN_FILES))
 
 help:
 	@echo "all:           Make all stan models in the current directory"
-	@echo "%.exe:       Generate stan executable from model"
+	@echo "$(EXE):       Generate stan executable from model"
 
 all: $(EXE_FILES) $(STAN_FILES)
 
