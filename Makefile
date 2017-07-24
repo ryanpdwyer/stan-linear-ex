@@ -12,7 +12,7 @@ CC = g++
 O = 3
 O_STANC = 0
 AR = ar
-EXE = 
+EXE?=
 
 # See http://stackoverflow.com/a/18137056
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))

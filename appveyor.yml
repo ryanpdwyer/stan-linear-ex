@@ -5,7 +5,7 @@ build_script:
   - SET PATH=C:\msys64\usr\bin;C:\cmdstan\bin;%PATH%
   - g++ --version
   - stanc --version
-  - make all
+  - EXE=.exe make all
 
 artifacts:
 
