@@ -2,6 +2,7 @@ environment:
   EXE: .exe
 
 build_script:
+  - systeminfo
   - ps: Start-FileDownload "https://ci.appveyor.com/api/projects/ryanpdwyer/cmdstan/artifacts/cmdstan.zip" C:\cmdstan.zip; echo "Finished downloading cmdstan"
   # See http://stackoverflow.com/a/27771099
   - ps: Expand-Archive C:\cmdstan.zip -dest C:\
