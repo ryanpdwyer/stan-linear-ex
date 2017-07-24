@@ -22,10 +22,12 @@ parameters {
 }
 model {
     // Priors on fit parameters
+    // Gamma distribution: alpha = mu^2 / sigma^2
+    //                      beta = mu / sigma^2
     dfc ~ normal(0, sigma_fc);
-    kc ~ normal(mu_kc, sigma_kc);
-    Q ~ normal(mu_Q, sigma_Q);
-    Pdet ~ cauchy(mu_Pdet, sigma_Pdet);
+    kc ~ gamma(mu_kc^2/sigma_kc^2, mu_kc / sigma_kc^2);
+    Q ~ gamma(mu_Q^2/sigma_Q^2, mu_Q / sigma_Q^2);
+    Pdet ~ gamma(mu_Pdet^2/sigma_Pdet^2, mu_Pdet/sigma_Pdet^2);
     
     for (i in 1:N) {
         y[i] ~ gamma(M, M / (
